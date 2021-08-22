@@ -84,13 +84,15 @@ def main():
         x1, y1, z1 = strat1.analysis()
         x2, y2, z2 = strat2.calculator()
         x3, y3, z3 = strat3.kvo()
+	y1 = (y1*100) - 100
+        y2 = (y2*100) - 100
+        y3 = (y3*100) - 100
         st.subheader("Results:")
         backtest_results = pd.DataFrame({"RWB": x1, "RSI": x2, "KVO": x3}, index=performence_)
         st.dataframe(backtest_results)
 
         st.subheader("Returns:")
         backtest_return = pd.DataFrame({"RWB":y1, "RSI":y2, "KVO": y3}, index=z1)
-	backtest_return = (backtest_return*100)-100
         backtest_return["Date"]=backtest_return.index.to_series().astype(str)
         fig = px.line(backtest_return,
                     x="Date",
