@@ -1,0 +1,13 @@
+yfinance
+streamlit
+datetime
+pandas
+numpy
+requests
+nltk
+wordcloud
+matplotlib
+plotly
+bs4
+statsmodels
+pmdarima
