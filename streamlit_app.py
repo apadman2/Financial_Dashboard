@@ -84,9 +84,12 @@ def main():
         x1, y1, z1 = strat1.analysis()
         x2, y2, z2 = strat2.calculator()
         x3, y3, z3 = strat3.kvo()
-	y1 = (y1*100) - 100
-        y2 = (y2*100) - 100
-        y3 = (y3*100) - 100
+        for i in range(len(y1)):
+            y1[i] = (y1[i]-1)*100
+        for i in range(len(y2)):
+            y2[i] = (y2[i]-1)*100
+        for i in range(len(y3)):
+            y3[i] = (y3[i]-1)*100
         st.subheader("Results:")
         backtest_results = pd.DataFrame({"RWB": x1, "RSI": x2, "KVO": x3}, index=performence_)
         st.dataframe(backtest_results)
