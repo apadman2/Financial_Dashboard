@@ -88,8 +88,9 @@ def main():
         backtest_results = pd.DataFrame({"RWB": x1, "RSI": x2, "KVO": x3}, index=performence_)
         st.dataframe(backtest_results)
 
-        st.subheader("Profit and Loss:")
+        st.subheader("Returns:")
         backtest_return = pd.DataFrame({"RWB":y1, "RSI":y2, "KVO": y3}, index=z1)
+	backtest_return = (backtest_return*100)-100
         backtest_return["Date"]=backtest_return.index.to_series().astype(str)
         fig = px.line(backtest_return,
                     x="Date",
